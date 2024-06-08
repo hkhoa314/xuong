@@ -1,0 +1,29 @@
+<h2 class="text-center my-3">Category add</h2>
+
+
+<form [formGroup]="categoryform" (ngSubmit)="handleSubmit()">
+  <div class="mb-3">
+    <label for="name" class="form-label">name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="name"
+      formControlName="name"
+    />
+    @if(categoryform.controls['name'].touched &&
+    categoryform.controls['name'].errors?.['required']) {
+    <span class="text-danger text-small"><small>name is Required</small></span>
+    }
+  </div>
+  <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <textarea
+      class="form-control"
+      id="description"
+      rows="3"
+      formControlName="description"
+    ></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Create category</button>
+</form>
